@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Electron React</title>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+        const scripts = [];
+
+        if (process.env.HOT) {
+            scripts.push(`http://localhost:${process.env.HOT_PORT}/dist/renderer.js`);
+        } else {
+            scripts.push(`./dist/renderer.js`);
+        }
+
+        document.write(
+            scripts.map(src => `<script defer src="${src}"><\/script>`)
+        );
+        </script>
+    </body>
+</html>
